@@ -31,7 +31,27 @@ x = df[['TV']]
 y = df[['Sales']]
 linear1 =linear_model.LinearRegression()
 linear1.fit(x,y)
-c = linear1.intercept_
+
+#Calculating the co-efficient value
 m = linear1.coef_
-print(f"c: {c}")
-print(f"m: {m}")
+#Calculating the Intercept values
+c = linear1.intercept_
+#formula is Y = mx + c
+# Sales = m * TV value + c
+
+print(f"Co-efficient value: {m}")
+print(f"Linear Intercept value : {c}")
+
+file = "linear1_reg.sav"
+pickle.dump(linear1,open(file,'wb'))
+
+#prediction based on TV value given by user and it will predict the sales values
+sale_prediction = True
+while (sale_prediction):
+    tv_value = float(input("Enter the TV value for which you want to see the prediction  or enter 0 to exit: "))
+    if tv_value == 0:
+        sale_prediction = False
+        print("Have a good Day")
+    else:
+        print(f"Sales of TV : {linear1.predict([[tv_value]])}")
+

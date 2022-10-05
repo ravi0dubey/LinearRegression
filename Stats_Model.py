@@ -1,11 +1,20 @@
 import pandas as pd
-import matplotlib.pyplot as plt
-import pickle
-from pandas_profiling import ProfileReport
-import numpy as np
-import Widgets
-from sklearn import linear_model
-import statsmodels.api as sm
-# Loading the dataset Advertising
+import statsmodels.formula.api as smf
 df1= pd.read_csv("Advertising.csv")
-print(df1)
+#print(df1.head(2))
+
+# Ols is Ordinary Least Squared model
+linear_model_2 = smf.ols(formula='Sales ~ TV',data=df1).fit()
+print("\n\nPrinting Ordinary Least Squared Model using TV as Feature columns\n")
+print(linear_model_2.summary())
+
+
+# Ols is Ordinary Least Squared model
+linear_model_2 = smf.ols(formula='Sales ~ TV + Radio',data=df1).fit()
+print("\n\nPrinting Ordinary Least Squared Model using TV and Radio as Feature columns\n")
+print(linear_model_2.summary())
+
+# Ols is Ordinary Least Squared model
+linear_model_2 = smf.ols(formula='Sales ~ TV + Radio + Newspaper',data=df1).fit()
+print("\n\nPrinting Ordinary Least Squared Model using TV,Radio and Newspaper as Feature columns\n")
+print(linear_model_2.summary())

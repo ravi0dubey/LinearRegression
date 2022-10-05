@@ -1,4 +1,4 @@
-# LinearRegression
+# LinearRegression for Advertising
 
 
 We are Testing our Data set based on Features **TV**, **Radio** and **Newspaper** to study the impact on **Sales** and deriving the accuracy of the Model </br>
